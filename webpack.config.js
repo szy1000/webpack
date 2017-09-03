@@ -1,5 +1,5 @@
 var path = require('path');
-// var webpack = require('webpack');
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var cleanWebpackPlugin = require('clean-webpack-plugin');
@@ -66,6 +66,13 @@ module.exports = {
 		]
 	},
 	plugins: [
+		
+		new webpack.HotModuleReplacementPlugin(),  //开启热更新
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery',
+			Swiper: 'swiper'
+		}),
 		extractPlugin,
 		new htmlWebpackPlugin({
 			filename: 'index.html',
