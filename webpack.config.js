@@ -1,6 +1,8 @@
 var path = require('path');
 // var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var htmlWebpackPlugin = require('html-webpack-plugin');
+var cleanWebpackPlugin = require('clean-webpack-plugin');
 
 var extractPlugin = new ExtractTextPlugin({
 	filename: 'style.css'
@@ -11,7 +13,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname,"dist"),
 		filename: 'bundle.js',
-		publicPath: '/dist'
+		// publicPath: '/dist'
 	},
 	module: {
 		rules: [
@@ -31,10 +33,31 @@ module.exports = {
 				use: extractPlugin.extract({
 					use: [ 'css-loader', 'sass-loader']
 				})
+			},
+			{
+				test: /\.html$/,
+				use: ['html-loader']
+			},
+			{
+				test: /\.(jpg|png|jpeg)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+							outputPath: 'images/',
+							// publicPath: 'images/'
+						}
+					}
+				]
 			}
 		]
 	},
 	plugins: [
-		extractPlugin
+		extractPlugin,
+		new htmlWebpackPlugin({
+			template: 'src/index.html',
+		}),
+		new cleanWebpackPlugin(['dist']) //删除之前的dist文件夹
 	]
 };
