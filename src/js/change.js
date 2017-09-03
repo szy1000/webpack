@@ -1,5 +1,6 @@
 // import {} from ''
 import "../css/style.scss";
+import "../users.html";
 
 const btn = document.getElementById('btn');
 const para = document.getElementById('para');

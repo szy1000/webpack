@@ -50,14 +50,32 @@ module.exports = {
 						}
 					}
 				]
+			},
+			{
+				test: /\.html$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+						}
+					}
+				],
+				exclude: path.resolve(__dirname, 'src/index.html')
 			}
 		]
 	},
 	plugins: [
 		extractPlugin,
 		new htmlWebpackPlugin({
+			filename: 'index.html',
 			template: 'src/index.html',
 		}),
+		// new htmlWebpackPlugin({
+		// 	filename: 'users.html',
+		// 	template: 'src/users.html',
+		// 	chunks:[]
+		// }),
 		new cleanWebpackPlugin(['dist']) //删除之前的dist文件夹
 	]
 };
