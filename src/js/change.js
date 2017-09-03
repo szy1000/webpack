@@ -1,11 +1,12 @@
-import '../css/common.css';
-import '../css/style.css';
+// import {} from ''
+import "../css/style.scss";
 
-import { btn , para} from './domFile.js'
+const btn = document.getElementById('btn');
+const para = document.getElementById('para');
 
-var bool = true;
+let bool = true;
 
-btn.onclick = function(){
+const toggle = () => {
 	if(bool){
 		bool = false;
 		para.style.display = 'none'
@@ -14,3 +15,6 @@ btn.onclick = function(){
 		para.style.display = 'block';
 	}
 }
+
+btn.addEventListener('click',toggle);
+
