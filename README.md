@@ -1,20 +1,21 @@
 # webpack
 my road to webpack
 
-##chpaterOne
-###0.1安装webpack
+## chpaterOne
+
+### 0.1安装webpack
 
 	npm install webpack --save-dev
 	
-###0.2安装服务器
+### 0.2安装服务器
 
 	npm isntall webpack-dev-server --save-dev
 	
-###0.3安装css loader
+### 0.3安装css loader
 
 	npm install css-loader style-loader --save-dev
 	
-###0.4安装scss
+### 0.4安装scss
 
 	npm install sass-loader node-sass --save-dev
 	
