@@ -68,11 +68,11 @@ module.exports = {
 	plugins: [
 		
 		new webpack.HotModuleReplacementPlugin(),  //开启热更新
-		new webpack.ProvidePlugin({
-			$: 'jquery',
-			jQuery: 'jquery',
-			Swiper: 'swiper'
-		}),
+		// new webpack.ProvidePlugin({
+		// 	$: 'jquery',
+		// 	jQuery: 'jquery',
+		// 	Swiper: 'swiper'
+		// }),
 		extractPlugin,
 		new htmlWebpackPlugin({
 			filename: 'index.html',

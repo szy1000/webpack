@@ -1,5 +1,6 @@
 // import {} from ''
-import 'jquery';
+// import 'jquery';
+import $ from 'jquery';
 import Swiper from 'swiper';
 import "../css/style.scss";
 import "../users.html";
@@ -26,12 +27,15 @@ btn.addEventListener('click',toggle);
 $(document).ready(function(){
 	var mySwiper = new Swiper('.swiper-container', {
     // direction: 'vertical',
-    loop: true,
-    autoPlay: true,
+    // loop: true,
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+    
     // 如果需要前进后退按钮
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
     
     // 如果需要滚动条
+    scrollbar: '.swiper-scrollbar',
   })      
 })
